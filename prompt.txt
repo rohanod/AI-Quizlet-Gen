@@ -1,0 +1,8 @@
+Turn this into an app that generates quizlet flashcards based on a topic or something(give free choice input) this is the format I want:
+
+{word}\t{definition}\n{word}\t{definition}\n{word}\t{definition}\n
+
+Where \t is tab and \n is newline
+
+
+Use all the ui elements available from components.json and delete anything not needed 

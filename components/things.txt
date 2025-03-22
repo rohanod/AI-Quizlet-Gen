@@ -1,0 +1,5 @@
+Shrink the cards a bit more but with uniform scale so that there is an even amount of cards in a row.
+
+Have a grade level text box so the user can select which group of people the flashcards are for.
+
+The light mode/dark mode icon should be in the center of the button and it should be set by default to the user's system setting. The moon icon should be when it's dark mode and the sun icon when it's currently on light mode.
