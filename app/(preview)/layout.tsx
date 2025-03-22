@@ -2,12 +2,10 @@ import "./globals.css";
 import { Metadata } from "next";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "next-themes";
-import { Geist } from "next/font/google";
-
-const geist = Geist({ subsets: ["latin"] });
+import { GeistSans as geist } from 'geist/font/sans';
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ai-sdk-preview-pdf-support.vercel.app"),
+  metadataBase: new URL("https://quizletgen.rohanodwyer.com"),
   title: "AI Flashcard Generator",
   description: "Generate flashcards quickly with AI",
 };
