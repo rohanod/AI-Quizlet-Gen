@@ -21,7 +21,10 @@ export async function POST(req: Request) {
     const { topic, apiKey, numFlashcards = 10, gradeLevel = "middle" } = await req.json();
     logger.info("Request received for topic", { topic, numFlashcards, gradeLevel });
 
-    const cardCount = Math.min(Math.max(1, Number(numFlashcards)), 30);
+    // If numFlashcards is 0, let AI decide the count, otherwise limit between 1-30
+    const cardCount = Number(numFlashcards) === 0 
+      ? 0 // AI will determine the appropriate number
+      : Math.min(Math.max(1, Number(numFlashcards)), 30);
     
     logger.debug("Initializing Gemini model with search grounding");
     
@@ -31,7 +34,17 @@ export async function POST(req: Request) {
     
     const gradeLevelInstructions = getGradeLevelInstructions(gradeLevel);
     
-    const prompt = `Generate ${cardCount} clear, concise flashcards about ${topic}. Use the most up-to-date information available.
+    const prompt = cardCount === 0
+      ? `Generate an appropriate number of clear, concise flashcards about ${topic}. Use the most up-to-date information available. Choose the number of flashcards based on the complexity and breadth of the topic.
+
+${gradeLevelInstructions}
+
+IMPORTANT: Do NOT enumerate or number the flashcards in your response. Return the data in the requested JSON format.
+
+Each flashcard should contain:
+- A term or concept as the "word" field
+- A concise 1-2 sentence explanation as the "definition" field`
+      : `Generate ${cardCount} clear, concise flashcards about ${topic}. Use the most up-to-date information available.
 
 ${gradeLevelInstructions}
 

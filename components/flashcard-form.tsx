@@ -1,11 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { Loader2 } from "lucide-react"
+import { Loader2, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 interface FlashcardFormProps {
   topic: string
@@ -58,20 +59,34 @@ export default function FlashcardForm({
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <Label htmlFor="numFlashcards">Number of Flashcards</Label>
+        <div>
+          <div className="flex items-center gap-2 mb-2">
+            <Label htmlFor="numFlashcards">Number of Flashcards</Label>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Info className="h-4 w-4 text-muted-foreground cursor-help" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Set to 0 to let AI choose the appropriate number of flashcards for your topic.</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
           <Input
             id="numFlashcards"
             type="number"
-            min="1"
+            min="0"
             max="30"
             value={numFlashcards}
             onChange={(e) => setNumFlashcards(parseInt(e.target.value) || 10)}
             className="focus-visible:ring-primary"
           />
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="gradeLevel">Grade Level</Label>
+        <div>
+          <div className="flex items-center gap-2 mb-2">
+            <Label htmlFor="gradeLevel">Grade Level</Label>
+          </div>
           <Select
             value={gradeLevel}
             onValueChange={setGradeLevel}
@@ -108,4 +123,4 @@ export default function FlashcardForm({
       </div>
     </form>
   )
-} 
+}

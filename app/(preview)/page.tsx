@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { experimental_useObject } from "ai/react";
+import { experimental_useObject } from "@ai-sdk/react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";

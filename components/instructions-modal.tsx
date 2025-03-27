@@ -39,7 +39,7 @@ export function InstructionsModal({ open, onOpenChange }: InstructionsModalProps
               <ol className="list-decimal pl-5 space-y-3">
                 <li className="text-sm">Go to the Quizlet page</li>
                 <li className="text-sm">
-                  Click on the "+" button near the top right
+                  Click on the &quot;+&quot; button near the top right
                   <div className="mt-2">
                     <Image 
                       src="/instructions/1.jpeg" 
@@ -52,7 +52,7 @@ export function InstructionsModal({ open, onOpenChange }: InstructionsModalProps
                   </div>
                 </li>
                 <li className="text-sm">
-                  Click "Flashcard set"
+                  Click &quot;Flashcard set&quot;
                   <div className="mt-2">
                     <Image 
                       src="/instructions/2.jpeg" 
@@ -71,7 +71,7 @@ export function InstructionsModal({ open, onOpenChange }: InstructionsModalProps
               <h3 className="text-lg font-medium mb-2">Import the flashcards</h3>
               <ol className="list-decimal pl-5 space-y-3">
                 <li className="text-sm">
-                  Click the "+ Import" button
+                  Click the &quot;+ Import&quot; button
                   <div className="mt-2">
                     <Image 
                       src="/instructions/3.jpeg" 
@@ -97,7 +97,7 @@ export function InstructionsModal({ open, onOpenChange }: InstructionsModalProps
                   </div>
                 </li>
                 <li className="text-sm">
-                  Make sure "Between Term and Definition" is set to <strong>Tab</strong> and "Between cards" is set to <strong>New line</strong>
+                  Make sure &quot;Between Term and Definition&quot; is set to <strong>Tab</strong> and &quot;Between cards&quot; is set to <strong>New line</strong>
                   <div className="mt-2">
                     <Image 
                       src="/instructions/5.jpeg" 
@@ -110,7 +110,7 @@ export function InstructionsModal({ open, onOpenChange }: InstructionsModalProps
                   </div>
                 </li>
                 <li className="text-sm">
-                  Click "Import" at the bottom right
+                  Click &quot;Import&quot; at the bottom right
                   <div className="mt-2">
                     <Image 
                       src="/instructions/6.jpeg" 
