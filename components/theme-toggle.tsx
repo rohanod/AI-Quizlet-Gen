@@ -13,6 +13,14 @@ export function ThemeToggle() {
   useEffect(() => {
     setMounted(true);
   }, []);
+  
+  // Set theme based on user's system preference by default
+  useEffect(() => {
+    if (mounted && !theme) {
+      const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      setTheme(systemPreference);
+    }
+  }, [mounted, theme, setTheme]);
 
   if (!mounted) {
     return <Button variant="ghost" size="icon" className="w-9 h-9 opacity-0"></Button>;
@@ -25,7 +33,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="w-9 h-9 relative"
+      className="w-9 h-9 relative flex items-center justify-center"
       aria-label="Toggle theme"
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -91,4 +99,4 @@ export function ThemeToggle() {
       </AnimatePresence>
     </Button>
   );
-} 
+}
